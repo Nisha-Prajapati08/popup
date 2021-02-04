@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="ÜTF-8">
+    <meta name='viewport' content="width-device-width,initial-scale-1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edgy">
+    <link rel="stylesheet" href="style.css">
+    <title>Website</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+</head>
+
+<body>
+
+    <div class="hero">
+        <nav>
+            <ul>
+                <li><a href="">Discover</a></li>
+                <li><a href="">Login</a></li>
+                <li><a href="">Join</a></li>
+            </ul>
+        </nav>
+
+        <div class="content">
+            <h1>Add your promo code</h1>
+            <input type="text" placeholder="Add Coupon code">
+
+            <h1>First Name</h1>
+            <input type="text" placeholder="Enter your First Name">
+
+            <h1>Last Name</h1>
+            <input type="text" placeholder="Enter your Last Name">
+
+        </div>
+        <div class="popup" id="popup">
+            <div class="popup-content">
+                <div class="close-popup" onclick="closePopupScreen()">&times;</div>
+
+                <div class="heading">
+                    <h1>Coupon Code</h1>
+                    <h4>More Deals for you!</h4>
+                </div>
+                <div class="row">
+                    <div class="card">
+                        <div class="card-header">
+                            <p style="font-weight:bold">FLAT</p>
+                            <h1 style="font-weight:bold">RS 500<sup> off</sup></h1>
+
+                        </div>
+                        <div class="card-body">
+                            <h2 id="coupon1">MMTFLAT500</h2>
+                            <button class="btn" id='button1'>COPY CODE</button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <p style="font-weight:bold">FLAT</p>
+                            <h1 style="font-weight:bold">RS 300<sup> off</sup></h1>
+                        </div>
+
+                        <div class="card-body">
+                            <h2 id="coupon2">FLYMMT300</h2>
+                            <button class="btn" id='button2'>COPY CODE</button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <p style="font-weight:bold">FLAT</p>
+                            <h1 style="font-weight:bold">RS 150<sup> off</sup></h1>
+                        </div>
+                        <div class="card-body">
+                            <h2 id="coupon3">FLYMMT150</h2>
+                            <button class="btn" id="button3">COPY CODE</button>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <p style="font-weight:bold">FLAT</p>
+                            <h1 style="font-weight:bold">RS 2500<sup> off</sup></h1>
+
+                        </div>
+                        <div class="card-body">
+                            <h2 id="coupon4">MMTBEST</h2>
+                            <button class="btn" id="button4">COPY CODE</button>
+                        </div>
+                    </div>
+                    <span class='alert'>Copied</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script>
+        function copy(copyId) {
+            var $inp = $("<input>");
+            $("body").append($inp);
+            $inp.val($("" + copyId).text()).select();
+            document.execCommand("copy");
+            $inp.remove();
+            $(".alert").fadeIn(500, function () {
+                $(".alert").fadeOut();
+            });
+        }
+        $(document).ready(function () {
+            $("#button1").click(
+                function () {
+                    copy('#coupon1');
+                });
+
+            $("#button2").click(
+                function () {
+                    copy('#coupon2');
+                });
+
+            $("#button3").click(
+                function () {
+                    copy('#coupon3');
+                });
+
+            $("#button4").click(
+                function () {
+                    copy('#coupon4');
+                });
+        });
+
+        window.addEventListener('scroll', function () {
+            document.getElementById('popup').style.display = 'block';
+        });
+        function closePopupScreen() {
+            document.getElementById("popup").style.display = "none";
+
+        }
+    </script>
+</body>
+</html>
